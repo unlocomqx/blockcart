@@ -60,9 +60,7 @@ class BlockCart extends Module
 		$useTax = !($taxCalculationMethod == PS_TAX_EXC);
 
 		$products = $params['cart']->getProducts(true);
-		$nbTotalProducts = 0;
-		foreach ($products as $product)
-			$nbTotalProducts += (int)$product['cart_quantity'];
+		$nbTotalProducts = $params['cart']->nbProducts();
 		$cart_rules = $params['cart']->getCartRules();
 
 		if (empty($cart_rules))
